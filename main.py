@@ -36,7 +36,7 @@ for i in range(1, n_korisnika+1):
     korisnik['email']=korisnik['email'].strip()
     korisnici.append(korisnik)
 
-print(korisnici)
+#print(korisnici)
 
 
 #Definiranje broja kategorija
@@ -53,7 +53,7 @@ for i in range(1, n_kategorija+1):
 
     # Definiranje broja artikala
 
-    n_artikla=int(input(f'Unesite broj artikala za {i}. kategoriju: '))
+    n_artikla=int(input(f'Unesite broj artikala za {i}. kategoriju ({kategorija["ime_kategorije"].capitalize()}): '))
 
     for j in range(1, n_artikla+1):
 
@@ -72,12 +72,12 @@ for i in range(1, n_kategorija+1):
         artikl['cijena']=float(input(f'Unesite cijenu {j}. prodajnog artikla (EUR): '))
         artikli.append(artikl)
 
-        print(artikli)
+        #print(artikli)
 
     kategorija['artikli']=artikli
     kategorije.append(kategorija)
 
-    print(kategorije)
+    #print(kategorije)
 
 
 #Definiranje broja prodaje
@@ -85,7 +85,7 @@ for i in range(1, n_kategorija+1):
 n_prodaja=int(input('Unesite broj prodaja: '))
 
 for i in range(1, n_prodaja+1):
-    #Definiranje rijecnika "Artikli"
+    #Definiranje rijecnika "prodaja"
     prodaja = {}
 
     #Upis trazenih podataka od korisnika
@@ -99,7 +99,7 @@ for i in range(1, n_prodaja+1):
             break
 
     #Upis trazenih podataka od korisnika
-    mjesec=int(input(f'Unesite mjesec isteka {i} prodaje artikla: '))
+    mjesec=int(input(f'Unesite mjesec isteka {i}. prodaje artikla: '))
 
     #Provjera ispravnosti upisa
     while mjesec > 12:
@@ -109,7 +109,7 @@ for i in range(1, n_prodaja+1):
             break
 
     #Upis trazenih podataka od korisnika
-    godina=int(input(f'Unesite godinu isteka {i} prodaje artikla: '))
+    godina=int(input(f'Unesite godinu isteka {i}. prodaje artikla: '))
 
     #Definiranje datuma od unesenih podataka
     prodaja['datum']=date(godina, mjesec, dan)
@@ -121,14 +121,14 @@ for i in range(1, n_prodaja+1):
 
     odabir_korisnik=int(input('Odabrani korisnik: '))
 
-    # Odabir kategorije
+    #Odabir kategorije
     print(f'Odaberite kategoriju {i}. prodaje: ')
     for j, kategorija in enumerate(kategorije, start=1):
         print(f'\t{j}. {kategorija["ime_kategorije"]}')
 
     odabir_kategorije = int(input('Odabrana kategorija: '))
 
-    # Odabir artikla
+    #Odabir artikla
     print(f'Odaberite artikl {i}. prodaje: ')
     for j, artikl in enumerate(kategorije[odabir_kategorije-1]['artikli'], start=1):
         print(f'\t{j}. {kategorije[odabir_kategorije-1]["artikli"][j-1]["naslov"]}')
@@ -143,7 +143,7 @@ for i in range(1, n_prodaja+1):
 for i, prodaja in enumerate(prodaje, start=1):
     print(f"Prodaja {i}: ")
     print('Informacije o korisniku: ')
-    print(f'\tIme: {prodaja["lorisnik"]["ime"]}')
+    print(f'\tIme: {prodaja["korisnik"]["ime"]}')
     print(f'\tPrezime: {prodaja["korisnik"]["prezime"]}')
     print(f'\tTelefon: {prodaja["korisnik"]["tel"]}')
     print(f'\tEmail: {prodaja["korisnik"]["email"]}')
