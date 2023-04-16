@@ -1,3 +1,5 @@
+from utilities import unos_pozitivnog_cijelog_broja
+
 def unos_korisnika(redni_b):
 
     #Definiranje rijecnika
@@ -13,7 +15,7 @@ def unos_korisnika(redni_b):
     korisnik['prezime'] = korisnik['prezime'].strip()
     korisnik['prezime'] = korisnik['prezime'].capitalize()
 
-    korisnik['tel'] = int(input(f'Unesite telefonski broj {redni_b}. korisnika: '))
+    korisnik['tel'] = unos_pozitivnog_cijelog_broja(f'Unesite telefonski broj {redni_b}. korisnika: ')
 
     korisnik['email'] = input(f'Unesite e-mail {redni_b}. korisnika: ')
     korisnik['email'] = korisnik['email'].strip()

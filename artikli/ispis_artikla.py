@@ -1,5 +1,5 @@
-def ispis_artikla(artikl):
-    print('Informacije o artiklu: ')
+def ispis_artikla(artikl, x):
+    print(f'Informacije o artiklu ({x}):')
     print(f'\t Naslov: {artikl["naslov"]}')
     print(f'\t Opis: {artikl["opis"]}')
     print(f'\t Cijena: {artikl["cijena"]}')
