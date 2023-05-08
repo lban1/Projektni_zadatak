@@ -64,3 +64,16 @@ def provjera_datuma(rijec, min, max):
             print(ex)
         else:
             return broj
+
+def unos_telefona(poruka):
+    while True:
+        try:
+            broj = str(unos_pozitivnog_cijelog_broja(poruka))
+
+            if len(broj) != 8:
+                raise Exception(f"Broj telefona mora imati 8 znamenaka!")
+
+        except Exception as e:
+            print(e)
+        else:
+            return broj

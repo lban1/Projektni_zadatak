@@ -3,10 +3,11 @@ from artikli import k_odabir_artikla
 from korisnici import k_odabir_korisnika
 from kategorije import k_odabir_kategorije
 from utilities import  unos_datuma, unos_intervala
+from .prodaja import Prodaja
 
 def unos_prodaje(korisnici, kategorije, redni_b):
     # Definiranje rijecnika "prodaja"
-    prodaja = {}
+    #prodaja = {}
 
     if len(korisnici) < 1 or len(kategorije) < 1:
         print('!' * 20)
@@ -14,7 +15,7 @@ def unos_prodaje(korisnici, kategorije, redni_b):
         print('!' * 20)
         return 0
 
-    prodaja['datum'] = unos_datuma()
+    datum = unos_datuma()
 
     # Odabir korisnika
     print(f'Odaberite korisnika {redni_b}. prodaje: ')
@@ -22,7 +23,7 @@ def unos_prodaje(korisnici, kategorije, redni_b):
         print(k_odabir_korisnika(i,korisnik))
 
     odabir_korisnik = unos_intervala(1,len(korisnici))
-    prodaja['korisnik'] = korisnici[odabir_korisnik-1]
+    korisnik = korisnici[odabir_korisnik-1]
 
     # Odabir kategorije
     print(f'Odaberite kategoriju {redni_b}. prodaje: ')
@@ -33,11 +34,11 @@ def unos_prodaje(korisnici, kategorije, redni_b):
 
     # Odabir artikla
     print(f'Odaberite artikl {redni_b}. prodaje: ')
-    for i, artikl in enumerate(kategorije[odabir_kategorije - 1]['artikli'], start=1):
+    for i, artikl in enumerate(kategorije[odabir_kategorije - 1].artikli, start=1):
         print(k_odabir_artikla(i, artikl))
 
-    odabir_artikla = unos_intervala(1,len(kategorije[odabir_kategorije-1]['artikli']))
-    prodaja['artikl'] = kategorije[odabir_kategorije-1]['artikli'][odabir_artikla-1]
-    prodaja['rb'] = redni_b
+    odabir_artikla = unos_intervala(1,len(kategorije[odabir_kategorije-1].artikli))
+    artikl = kategorije[odabir_kategorije-1].artikli[odabir_artikla-1]
+    #prodaja['rb'] = redni_b
 
-    return prodaja
+    return Prodaja(datum, korisnik, artikl, redni_b)

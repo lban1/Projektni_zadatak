@@ -1,21 +1,22 @@
 from artikli import unos_artikla
 from utilities import unos_pozitivnog_cijelog_broja
+from .kategorija import Kategorija
 
 def unos_kategorije(redni_b):
     #Definiranje rijecnika
-    kategorija = {}
+    #kategorija = {}
 
     #Upis trazenih podataka od korisnika
-    kategorija['ime_kategorije'] = input(f'Unesite ime {redni_b}. kategorije: ').capitalize()
+    ime_kategorije = input(f'Unesite ime {redni_b}. kategorije: ').capitalize()
 
     # Definiranje praznog polja
-    kategorija['artikli'] = []
+    artikli = []
 
     #Definiranje broja artikala
     n_artikla = unos_pozitivnog_cijelog_broja(f'Unesite broj artikala za {redni_b}. kategoriju: ')
 
     #Uz pomoc for petlje upisati artikle
     for i in range(1, n_artikla + 1):
-        kategorija['artikli'].append(unos_artikla(i))
+        artikli.append(unos_artikla(i))
 
-    return kategorija
+    return Kategorija(ime_kategorije, artikli)

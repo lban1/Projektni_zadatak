@@ -1,4 +1,4 @@
-def ispis_korisnika(korisnik, y):
+'''def ispis_korisnika(korisnik, y):
     print(f'Informacije o korisniku ({y}):')
     print(f'\tIme: {korisnik["ime"]}')
     print(f'\tPrezime: {korisnik["prezime"]}')
@@ -11,4 +11,10 @@ def k_odabir_korisnika(redni_b, korisnik):
 def ispis_svih_korisnika(korisnici, x):
     for korisnik in korisnici:
         x = x+1
-        ispis_korisnika(korisnik, x)
+        ispis_korisnika(korisnik, x)'''
+
+def k_odabir_korisnika(redni_b, korisnik):
+    return f"{redni_b}.  {korisnik.ime} {korisnik.prezime}"
+def ispis_svih_korisnika(korisnici):
+    for korisnik in korisnici:
+        korisnik.ispis()

@@ -29,9 +29,9 @@ while True:
         if prodaja_provjera != 0:
             prodaje.append(prodaja_provjera)
     elif akcija == 4:
-        ispis_svih_korisnika(korisnici, 0)
+        ispis_svih_korisnika(korisnici)
     elif akcija == 5:
-        ispis_svih_kategorija(kategorije, 0)
+        ispis_svih_kategorija(kategorije)
     elif akcija == 6:
         ispis_svih_prodaja(prodaje)
     elif akcija == 7:
