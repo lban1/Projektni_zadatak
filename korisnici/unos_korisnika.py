@@ -1,5 +1,5 @@
-from .korisnik import Korisnik
-from utilities import unos_telefona
+from .korisnik import PrivatniKorisnik, PoslovniKorisnik
+from utilities import unos_telefona, unos_intervala
 def unos_korisnika(redni_b):
 
     #Definiranje rijecnika
@@ -21,9 +21,22 @@ def unos_korisnika(redni_b):
     korisnik['email'] = korisnik['email'].strip()
     """
 
-    ime = input(f'Unesite ime {redni_b}. korisnika: ').strip().capitalize()
-    prezime = input(f'Unesite prezime {redni_b}. korisnika: ').strip().capitalize()
     tel = unos_telefona(f'Unesite telefonski broj {redni_b}. korisnika: ')
     email = input(f'Unesite e-mail {redni_b}. korisnika: ').strip()
+    print(f'Odabir vrste korisnika: ')
+    print("\t 1. Poslovni korisnik")
+    print("\t 2. Privatni korisnik")
 
-    return Korisnik(ime, prezime, tel, email)
+    odabir_korisnika = unos_intervala(1,2)
+
+    if odabir_korisnika == 1:
+        naziv = input(f'Unesite naziv {redni_b}. korisnika: ')
+        web = input(f'Unesite web stranicu {redni_b}. korisnika: ')
+
+        return PoslovniKorisnik(tel, email, naziv, web)
+
+    elif odabir_korisnika == 2:
+        ime = input(f'Unesite ime {redni_b}. korisnika: ').strip().capitalize()
+        prezime = input(f'Unesite prezime {redni_b}. korisnika: ').strip().capitalize()
+
+        return PrivatniKorisnik(tel, email, ime, prezime)

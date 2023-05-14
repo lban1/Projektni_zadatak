@@ -14,7 +14,7 @@ def ispis_svih_korisnika(korisnici, x):
         ispis_korisnika(korisnik, x)'''
 
 def k_odabir_korisnika(redni_b, korisnik):
-    return f"{redni_b}.  {korisnik.ime} {korisnik.prezime}"
+    return f"{redni_b}.  E-mail:{korisnik.email}, Tel:{korisnik.tel}"
 def ispis_svih_korisnika(korisnici):
     for korisnik in korisnici:
         korisnik.ispis()
