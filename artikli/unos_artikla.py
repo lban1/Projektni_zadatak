@@ -1,5 +1,5 @@
 from utilities import unos_pozitivnog_realnog_broja, unos_intervala
-from .artikl import Artikl, Automobil, Stan
+from .artikl import Artikl, Automobil, Stan, Instrukcije
 def unos_artikla(redni_b):
 
     #Definiranje rijecnika
@@ -23,8 +23,9 @@ def unos_artikla(redni_b):
     print(f'Odabir vrste artikla: ')
     print("\t 1. Automobil")
     print("\t 2. Stan")
+    print("\t 3. Instrukcije")
 
-    odabir_artikla = unos_intervala(1,2)
+    odabir_artikla = unos_intervala(1,3)
 
     if odabir_artikla == 1:
         k_snaga = unos_pozitivnog_realnog_broja(f'{redni_b}. prodajni artikl; Unesite snagu automobila (Ks) : ')
@@ -35,3 +36,6 @@ def unos_artikla(redni_b):
         kvadratura = unos_pozitivnog_realnog_broja(f'{redni_b}. prodajni artikl; Unesite kvadraturu: ')
 
         return Stan(naslov, opis, cijena, kvadratura)
+
+    elif odabir_artikla == 3:
+        return Instrukcije(naslov, opis, cijena)

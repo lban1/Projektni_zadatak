@@ -61,3 +61,20 @@ class Stan(Artikl):
         print(f'\t Opis: {self.opis}')
         print(f'\t Cijena: {self.cijena}')
         print(f'\t Kvadratura: {self.kvadratura}')
+
+class Usluga(ABC):
+    def cijena_po_satu(self):
+        pass
+
+class Instrukcije(Artikl,Usluga):
+    def __init__(self, naslov, opis, cijena):
+        super().__init__(naslov, opis, cijena)
+
+    def cijena_po_satu(self):
+        return self.cijena/30
+
+    def ispis(self):
+        print('Informacije o instrukcijama: ')
+        print(f'\t Naslov: {self.naslov}')
+        print(f'\t Opis: {self.opis}')
+        print(f'\t Cijena: {self.cijena_po_satu()}')
