@@ -1,4 +1,5 @@
 from datetime import date
+from iznimke import IznimkaPrazanTekst, IznimkaTelefon
 
 def unos_pozitivnog_cijelog_broja(poruka):
     while True:
@@ -77,3 +78,24 @@ def unos_telefona(poruka):
             print(e)
         else:
             return broj
+
+def provjera_korisnickog_unosa(tel, email, ime_ili_naziv, prezime_ili_web):
+    while True:
+        try:
+            if len(tel) == 0 or len(email) == 0 or len(ime_ili_naziv) == 0 or len(prezime_ili_web) == 0:
+                raise IznimkaPrazanTekst()
+            elif len(str(tel)) != 8:
+                raise IznimkaTelefon()
+            int(tel)
+
+        except IznimkaPrazanTekst as ipt:
+            return str(ipt)
+
+        except IznimkaTelefon as it:
+            return str(it)
+
+        except ValueError:
+            return ('Telefon mora biti broj!')
+
+        else:
+            return None
